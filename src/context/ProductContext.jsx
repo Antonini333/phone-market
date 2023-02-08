@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { getProductsList } from "../services/requests"
 
-const ProductContext = createContext({
+export const ProductContext = createContext({
     productList: [],
     setProductList: () => {},
     cartItems: 0,

@@ -9,15 +9,15 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <ProductProvider>
-        <BrowserRouter>
+      <BrowserRouter>
+        <ProductProvider>
           <Header />
           <Routes>
             <Route path="/" element={<ProductListPage />} />
             <Route path="/products/:id" element={<ProductDetailsPage />} />
           </Routes>
-        </BrowserRouter>
-      </ProductProvider>
+        </ProductProvider>
+      </BrowserRouter>
     </div>
   );
 }
