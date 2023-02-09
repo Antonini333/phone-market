@@ -1,5 +1,4 @@
 import { useEffect, useState, useContext } from "react";
-import { Navigate } from "react-router";
 import { ProductContext } from "../../context/ProductContext";
 import useDebounceValue from "../../hooks/useDebounceValue"
 import { useNavigate } from 'react-router-dom';
