@@ -6,7 +6,7 @@ import ProductListPage from "./views/ProductListPage";
 import { Header } from "./components/Header/Header"
 import './App.css';
 
-function App() {
+function AppRouter() {
   return (
     <div className="App">
       <BrowserRouter>
@@ -23,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppRouter;
