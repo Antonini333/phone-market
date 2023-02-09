@@ -18,6 +18,8 @@ const Breadcrumbs = () => {
                 </div>
             )
         })
+
+        console.log({crumbs})
     return (
         <div>
             {crumbs}

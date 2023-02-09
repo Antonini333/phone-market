@@ -2,9 +2,12 @@ import { useContext, useEffect } from "react";
 import { ProductContext } from "../context/ProductContext";
 import SearchBar from "../components/SearchBar/SearchBar"
 import { v4 } from "uuid";
+import { useNavigate } from 'react-router-dom';
+
 
 const ProductListPage = () => {
     const { productList } = useContext(ProductContext);
+    let navigate = useNavigate();
 
 
     useEffect(() => {
@@ -13,11 +16,15 @@ const ProductListPage = () => {
 
     return (
         <>
-        <h1>List</h1>
-        <SearchBar/>
-        <ul>
-            {productList.map((product => <li key={v4()}>{`${product.brand}, ${product.model}`}</li>))}
-        </ul>
+            <h1>List</h1>
+            <SearchBar />
+            <ul>
+                {productList.map((product => {
+                    return <li key={v4()} onClick={()=> {navigate("/products/:id")} }>
+                        {`${product.brand}, ${product.model}`}
+                    </li>
+                }))}
+            </ul>
         </>
     )
 }
