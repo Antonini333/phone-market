@@ -11,6 +11,7 @@ const Breadcrumbs = () => {
     const { productList } = useContext(ProductContext);
     
     const getProductNameById = (crumb) => {
+        if(!productList.length) return;
         if (crumb === "products") return "Products";
         const match = productList.find(product => product.id === crumb);
         return `${match.brand} ${match.model}`
