@@ -14,3 +14,5 @@ const useDebounceValue = (value, time = 250) => {
 
     return debounceValue;
 }
+
+export default useDebounceValue;

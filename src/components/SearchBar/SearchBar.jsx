@@ -1,24 +1,26 @@
 import { useEffect, useState, useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
+import useDebounceValue from "../../hooks/useDebounceValue"
 
 const SearchBar = () => {
     const { productList } = useContext(ProductContext);
     const [query, setQuery] = useState("");
     const [suggestions, setSuggestions] = useState([]);
+    const debounceQuery = useDebounceValue(query);
 
     const getAutoCompleteResults = () => {
         return productList.map(product => {
             const searchTerm = `${product.brand.toLowerCase()} ${product.model.toLowerCase()}`;
-            if (!searchTerm.includes(query.toLowerCase())) return;
+            if (!searchTerm.includes(debounceQuery.toLowerCase())) return;
             return product;
         }).filter(Boolean);
     }
 
     useEffect(() => {
         setSuggestions([]);
-        if (query.length > 0)
+        if (debounceQuery.length > 0)
             setSuggestions(getAutoCompleteResults());
-    }, [query])
+    }, [debounceQuery])
 
     return (
         <div>
