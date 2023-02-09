@@ -20,7 +20,7 @@ const ProductListPage = () => {
             <SearchBar />
             <ul>
                 {productList.map((product => {
-                    return <li key={v4()} onClick={()=> {navigate("/products/:id")} }>
+                    return <li key={v4()} onClick={()=> {navigate(`/products/${product.id}`)} }>
                         {`${product.brand}, ${product.model}`}
                     </li>
                 }))}
