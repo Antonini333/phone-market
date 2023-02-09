@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ProductProvider from "./context/ProductContext"
 import ProductDetailsPage from "./views/ProductDetailsPage";
 import ProductListPage from "./views/ProductListPage";
@@ -13,7 +13,8 @@ function App() {
         <ProductProvider>
           <Header />
           <Routes>
-            <Route path="/" element={<ProductListPage />} />
+          <Route path="/" element={<Navigate to="/products" />} />
+            <Route path="/products" element={<ProductListPage />} />
             <Route path="/products/:id" element={<ProductDetailsPage />} />
           </Routes>
         </ProductProvider>

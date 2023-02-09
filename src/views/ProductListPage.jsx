@@ -1,5 +1,6 @@
-import { useContext, useEffect } from "react"
-import { ProductContext } from "../context/ProductContext"
+import { useContext, useEffect } from "react";
+import { ProductContext } from "../context/ProductContext";
+import { v4 } from "uuid";
 
 const ProductListPage = () => {
     const { productList } = useContext(ProductContext);
@@ -13,7 +14,7 @@ const ProductListPage = () => {
         <>
         <h1>List</h1>
         <ul>
-            {productList.map((product => <li>{`${product.brand}, ${product.model}`}</li>))}
+            {productList.map((product => <li key={v4()}>{`${product.brand}, ${product.model}`}</li>))}
         </ul>
         </>
     )
