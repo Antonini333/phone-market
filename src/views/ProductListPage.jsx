@@ -3,16 +3,19 @@ import { ProductContext } from "../context/ProductContext";
 import SearchBar from "../components/SearchBar/SearchBar"
 import { v4 } from "uuid";
 import { useNavigate } from 'react-router-dom';
+import { getProductDetails } from "../services/requests";
 
 
 const ProductListPage = () => {
-    const { productList } = useContext(ProductContext);
+    const { productList, setSelectedItem } = useContext(ProductContext);
     let navigate = useNavigate();
 
-
-    useEffect(() => {
-        console.log(productList);
-    }, [productList]);
+    const handleClick = (id) => {
+        getProductDetails(id)
+            .then(({ data }) => setSelectedItem(data))
+            .catch(err => console.log(err));
+        navigate(`/products/${id}`);
+    }
 
     return (
         <>
@@ -20,7 +23,7 @@ const ProductListPage = () => {
             <SearchBar />
             <ul>
                 {productList.map((product => {
-                    return <li key={v4()} onClick={()=> {navigate(`/products/${product.id}`)} }>
+                    return <li key={v4()} onClick={() => handleClick(product.id)}>
                         {`${product.brand}, ${product.model}`}
                     </li>
                 }))}

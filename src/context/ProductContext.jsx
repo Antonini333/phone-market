@@ -6,10 +6,13 @@ export const ProductContext = createContext({
     setProductList: () => {},
     cartItems: 0,
     setCartItems: () => {},
+    selectedItem: {},
+    setSelectedItem: () => {}
 });
 
 const ProductProvider = ({ children }) => {
     const [productList, setProductList] = useState([]);
+    const [selectedItem, setSelectedItem] = useState({});
     const [cartItems, setCartItems] = useState(0);
     const [lastUpdate, setLastUpdate] = useState(null);
     const msHour = 60 * 60 * 1000;
@@ -32,9 +35,13 @@ const ProductProvider = ({ children }) => {
         return () => clearInterval(intervalId);
     }, []);
 
+  
+
     const productContext = {
         productList,
         setProductList,
+        selectedItem,
+        setSelectedItem,
         cartItems,
         setCartItems
     };
