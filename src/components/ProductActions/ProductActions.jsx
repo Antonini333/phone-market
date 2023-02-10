@@ -1,4 +1,5 @@
 import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { ProductContext } from "../../context/ProductContext";
 import { addToCart } from "../../services/requests";
 
@@ -7,6 +8,7 @@ const STORAGE_KEY = "storage";
 
 
 const ProductActions = () => {
+    let navigate = useNavigate();
     const { selectedItem, setCartItems } = useContext(ProductContext);
     const optionSelected = {
         id: selectedItem.id,
@@ -22,6 +24,7 @@ const ProductActions = () => {
             addToCart(optionSelected)
                 .then((res) => setCartItems((prev) => prev + res.data.count))
                 .catch((err) => console.log(err))
+                .finally(navigate("/"))
         }
     }
 

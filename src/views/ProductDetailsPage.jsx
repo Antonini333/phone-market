@@ -1,8 +1,6 @@
 import ProductActions from "../components/ProductActions/ProductActions";
 import ProductDescription from "../components/ProductDescription/ProductDescription";
 
-
-
 const ProductDetailsPage = () => {
 
     return (
