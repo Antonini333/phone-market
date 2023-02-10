@@ -1,11 +1,9 @@
-import { useContext } from "react";
 import ProductActions from "../components/ProductActions/ProductActions";
 import ProductDescription from "../components/ProductDescription/ProductDescription";
-import { ProductContext } from "../context/ProductContext";
+
 
 
 const ProductDetailsPage = () => {
-    const { selectedItem } = useContext(ProductContext);
 
     return (
         <div>
