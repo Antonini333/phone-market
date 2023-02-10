@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/ProductContext";
+import { capitalizeWords, replaceEmptyString } from "../../utils/functions"
 
 const ProductDescription = () => {
     const { selectedItem } = useContext(ProductContext);
@@ -20,7 +21,11 @@ const ProductDescription = () => {
 
     const descriptionArray = Object.entries(selectedItem)
         .filter(([key, value]) => keysToMap.includes(key))
-        .map(([key, value]) => ({ key, value }));
+        .map(([key, value]) => {
+            if (Array.isArray(value))
+                value = value.join(", ");
+            return ({ key, value })
+        });
 
     return (
         <>
@@ -28,7 +33,7 @@ const ProductDescription = () => {
                 <ul>
                     {descriptionArray.map(({ key, value }) => (
                         <li key={key}>
-                            {key}: {value}
+                            {capitalizeWords(key)}: {replaceEmptyString(value)}
                         </li>
                     ))}
                 </ul>
