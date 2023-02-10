@@ -6,15 +6,20 @@ import { useNavigate } from 'react-router-dom';
 import { getProductDetails } from "../services/requests";
 
 
+
 const ProductListPage = () => {
     const { productList, setSelectedItem } = useContext(ProductContext);
     let navigate = useNavigate();
 
+    useEffect(() => {
+        setSelectedItem({})
+    }, [])
+
     const handleClick = (id) => {
         getProductDetails(id)
             .then(({ data }) => setSelectedItem(data))
-            .catch(err => console.log(err));
-        navigate(`/products/${id}`);
+            .catch(err => console.log(err))
+            .finally(navigate(`/products/${id}`));
     }
 
     return (
