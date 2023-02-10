@@ -29,7 +29,6 @@ const Breadcrumbs = () => {
             )
         })
 
-    console.log({ crumbs })
     return (
         <div>
             {crumbs}

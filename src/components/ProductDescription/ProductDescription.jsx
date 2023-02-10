@@ -14,7 +14,7 @@ const ProductDescription = () => {
         "displayResolution",
         "battery",
         "primaryCamera",
-        "secondaryCamera",
+        "secondaryCmera",
         "dimentions",
         "weight"
     ];
