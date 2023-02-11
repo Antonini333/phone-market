@@ -1,8 +1,8 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useCallback } from "react";
 import { ProductContext } from "../../context/ProductContext";
-import useDebounceValue from "../../hooks/useDebounceValue"
 import { useNavigate } from 'react-router-dom';
-import {getProductDetails} from "../../services/requests"
+import useDebounceValue from "../../hooks/useDebounceValue";
+import shortid from "shortid";
 
 
 const SearchBar = () => {
@@ -12,24 +12,24 @@ const SearchBar = () => {
     const [suggestions, setSuggestions] = useState([]);
     const debounceQuery = useDebounceValue(query);
 
-    const getAutoCompleteResults = () => {
+    const getAutoCompleteResults = useCallback(() => {
         return productList.map(product => {
-            const searchTerm = `${product.brand.toLowerCase()} ${product.model.toLowerCase()}`;
-            if (!searchTerm.includes(debounceQuery.toLowerCase())) return;
-            return product;
+          const searchTerm = `${product.brand.toLowerCase()} ${product.model.toLowerCase()}`;
+          if (!searchTerm.includes(debounceQuery.toLowerCase())) return null;
+          return product;
         }).filter(Boolean);
-    }
+      }, [debounceQuery, productList]);
 
     useEffect(() => {
         setSuggestions([]);
         if (debounceQuery.length > 0)
             setSuggestions(getAutoCompleteResults());
-    }, [debounceQuery])
+    }, [debounceQuery, getAutoCompleteResults])
 
     return (
         <div>
             <input value={query} onChange={(e) => setQuery(e.target.value)}></input>
-            <div>{suggestions.map(sgt => <div onClick={() => navigate(`/products/${sgt.id}`)}>{`${sgt.brand}-${sgt.model}`}</div>)}</div>
+            <div>{suggestions.map(sgt => <div key={shortid.generate()} onClick={() => navigate(`/products/${sgt.id}`)}>{`${sgt.brand}-${sgt.model}`}</div>)}</div>
         </div>
     )
 

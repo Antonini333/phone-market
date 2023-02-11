@@ -1,8 +1,7 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import SearchBar from "../SearchBar/SearchBar"
 import { ProductContext } from "../../context/ProductContext";
 import { useNavigate } from 'react-router-dom';
-import { getProductDetails } from "../../services/requests";
 import shortid from 'shortid';
 
 const ProductList = () => {

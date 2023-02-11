@@ -14,7 +14,7 @@ function AppRouter() {
         <ProductProvider>
           <Header />
           <Routes>
-          <Route path="/" element={<Navigate to="/products" />} />
+          <Route path="*" element={<Navigate to="/products" />} />
             <Route path="/products" element={<ProductListPage />} />
             <Route path="/products/:id" element={<ProductDetailsPage />} />
             <Route path="/products/error" element={<ErrorPage/>}/>

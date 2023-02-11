@@ -1,9 +1,7 @@
-import { useContext, useEffect } from "react";
-import { ProductContext } from "../../context/ProductContext";
 import { capitalizeWords, replaceEmptyString } from "../../utils/functions"
 
 const ProductDescription = ({item, loading}) => {
-    
+
     const keysToMap = [
         "brand",
         "model",
@@ -20,7 +18,7 @@ const ProductDescription = ({item, loading}) => {
     ];
 
     const descriptionArray = item && Object.entries(item)
-        .filter(([key, value]) => keysToMap.includes(key))
+        .filter(([key]) => keysToMap.includes(key))
         .map(([key, value]) => {
             if (Array.isArray(value))
                 value = value.join(", ");

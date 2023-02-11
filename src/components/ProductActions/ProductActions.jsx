@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router";
 import { ProductContext } from "../../context/ProductContext";
 import { addToCart } from "../../services/requests";

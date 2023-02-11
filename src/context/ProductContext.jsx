@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState, useCallback } from "react";
 import { getProductsList } from "../services/requests"
 
 export const ProductContext = createContext({
@@ -6,17 +6,14 @@ export const ProductContext = createContext({
     setProductList: () => {},
     cartItems: 0,
     setCartItems: () => {},
-    selectedItem: {},
-    setSelectedItem: () => {}
 });
 
 const ProductProvider = ({ children }) => {
     const [productList, setProductList] = useState([]);
-    const [selectedItem, setSelectedItem] = useState({});
     const [cartItems, setCartItems] = useState(0);
     const [lastUpdate, setLastUpdate] = useState(null);
     const msHour = 60 * 60 * 1000;
-    const hourHasPassed = () => Date.now() - lastUpdate > msHour;
+    const hourHasPassed = useCallback(() => Date.now() - lastUpdate > msHour, [lastUpdate, msHour]);
 
     useEffect(() => {
         if (hourHasPassed()) {
@@ -28,20 +25,16 @@ const ProductProvider = ({ children }) => {
                 })
                 .catch(err => console.error(err))
         }
-    }, [lastUpdate]);
+    }, [lastUpdate, msHour, hourHasPassed]);
 
     useEffect(() => {
         const intervalId = setInterval(() => setLastUpdate(null), msHour);
         return () => clearInterval(intervalId);
-    }, []);
+    }, [msHour]);
 
-  
 
     const productContext = {
         productList,
-        setProductList,
-        selectedItem,
-        setSelectedItem,
         cartItems,
         setCartItems
     };
