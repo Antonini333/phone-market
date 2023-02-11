@@ -5,6 +5,7 @@ import ProductDetailsPage from "./views/ProductDetailsPage";
 import ProductListPage from "./views/ProductListPage";
 import { Header } from "./components/Header/Header"
 import './App.css';
+import ErrorPage from './views/ErrorPage';
 
 function AppRouter() {
   return (
@@ -16,6 +17,7 @@ function AppRouter() {
           <Route path="/" element={<Navigate to="/products" />} />
             <Route path="/products" element={<ProductListPage />} />
             <Route path="/products/:id" element={<ProductDetailsPage />} />
+            <Route path="/products/error" element={<ErrorPage/>}/>
           </Routes>
         </ProductProvider>
       </BrowserRouter>

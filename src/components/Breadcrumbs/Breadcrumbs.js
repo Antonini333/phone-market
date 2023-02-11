@@ -14,6 +14,7 @@ const Breadcrumbs = () => {
         if(!productList.length) return;
         if (crumb === "products") return "Products";
         const match = productList.find(product => product.id === crumb);
+        if(!match) return;
         return `${match.brand} ${match.model}`
     }
     
