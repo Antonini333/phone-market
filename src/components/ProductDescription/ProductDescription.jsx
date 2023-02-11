@@ -2,8 +2,8 @@ import { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import { capitalizeWords, replaceEmptyString } from "../../utils/functions"
 
-const ProductDescription = () => {
-    const { selectedItem } = useContext(ProductContext);
+const ProductDescription = ({item, loading}) => {
+    
     const keysToMap = [
         "brand",
         "model",
@@ -19,7 +19,7 @@ const ProductDescription = () => {
         "weight"
     ];
 
-    const descriptionArray = Object.entries(selectedItem)
+    const descriptionArray = item && Object.entries(item)
         .filter(([key, value]) => keysToMap.includes(key))
         .map(([key, value]) => {
             if (Array.isArray(value))
@@ -29,16 +29,17 @@ const ProductDescription = () => {
 
     return (
         <>
-            {descriptionArray.length ? (
+            {loading ? (
+             <div>LOADING</div>
+            ) : (
                 <ul>
-                    {descriptionArray.map(({ key, value }) => (
+                    {descriptionArray && descriptionArray.map(({ key, value }) => (
                         <li key={key}>
                             {capitalizeWords(key)}: {replaceEmptyString(value)}
                         </li>
                     ))}
                 </ul>
-            ) : (
-                <div>LOADING</div>
+                
             )}
         </>
     );

@@ -7,16 +7,16 @@ const COLOR_KEY = "color";
 const STORAGE_KEY = "storage";
 
 
-const ProductActions = () => {
+const ProductActions = ({item, loading}) => {
     let navigate = useNavigate();
-    const { selectedItem, setCartItems } = useContext(ProductContext);
+    const { setCartItems } = useContext(ProductContext);
     const optionSelected = {
-        id: selectedItem.id,
+        id: item?.id,
         colorCode: null,
         storageCode: null
     };
-    const colors = selectedItem?.options?.colors;
-    const storages = selectedItem?.options?.storages;
+    const colors = item?.options?.colors;
+    const storages = item?.options?.storages;
 
 
     const handleBuy = () => {
@@ -35,6 +35,10 @@ const ProductActions = () => {
 
     return (
         <>
+        { loading ? (
+            <div>Loading</div>
+        ) : (
+            <>
             <div>
                 <h4>Colors</h4>
                 {colors?.map((color => {
@@ -51,6 +55,7 @@ const ProductActions = () => {
             <div>
                 <button onClick={handleBuy}>Add to cart</button>
             </div>
+            </>)}
         </>
     )
 }
