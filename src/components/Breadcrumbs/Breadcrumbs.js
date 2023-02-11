@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
-import { v4 } from "uuid";
+import shortid from 'shortid';
 
 
 
@@ -23,7 +23,7 @@ const Breadcrumbs = () => {
         .map(crumb => {
             currentLink += `/${crumb}`
             return (
-                <div key={v4()}>
+                <div key={shortid.generate()}>
                     <Link to={currentLink}>{getProductNameById(crumb)}</Link>
                 </div>
             )

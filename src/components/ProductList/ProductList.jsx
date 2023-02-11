@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react";
-import { ProductContext } from "../../context/ProductContext";
 import SearchBar from "../SearchBar/SearchBar"
-import { v4 } from "uuid";
+import { ProductContext } from "../../context/ProductContext";
 import { useNavigate } from 'react-router-dom';
 import { getProductDetails } from "../../services/requests";
+import shortid from 'shortid';
 
 const ProductList = () => {
     const { productList, setSelectedItem } = useContext(ProductContext);
@@ -26,7 +26,7 @@ const ProductList = () => {
             <SearchBar />
             <ul>
                 {productList.map((product => {
-                    return <li key={v4()} onClick={() => handleClick(product.id)}>
+                    return <li key={shortid.generate()} onClick={() => handleClick(product.id)}>
                         {`${product.brand}, ${product.model}`}
                     </li>
                 }))}
