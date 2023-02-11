@@ -1,6 +1,6 @@
 import ProductList from "../components/ProductList/ProductList"
 
-const ProductListPage = () => {
+const MainPage = () => {
  
     return (
         <>
@@ -10,4 +10,4 @@ const ProductListPage = () => {
     )
 }
 
-export default ProductListPage
+export default MainPage
