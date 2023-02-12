@@ -1,8 +1,16 @@
 .c-card {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 
     &__image {}
 
     &__model {}
 
     &__price {}
+
+    &:hover{
+        cursor: pointer;
+    }
 }

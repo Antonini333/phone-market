@@ -1,9 +1,15 @@
 .c-product-list {
-    &__searchbar {}
+    background-color: aquamarine;
+    &__searchbar {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+    }
 
     &__grid {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         &-item {
             flex: 1 0 21%; 
         }

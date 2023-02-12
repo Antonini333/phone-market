@@ -20,7 +20,6 @@ const ProductList = () => {
             <div className="c-product-list__grid">
                 {productList.map((product => {
                     return <div className="c-product-list__grid-item" key={shortid.generate()} onClick={() => navigate(`/products/${product.id}`)}>
-                        {`${product.brand}, ${product.model}`}
                         <Card item={product} />
                     </div>
                 }))}
