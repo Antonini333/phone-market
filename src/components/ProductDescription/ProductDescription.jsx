@@ -1,7 +1,7 @@
-import { capitalizeWords, replaceEmptyString } from "../../utils/functions"
+import { capitalizeWords, replaceEmptyString } from "../../utils/functions";
+import "../../styles/components/product-description.scss";
 
-const ProductDescription = ({item, loading}) => {
-
+const ProductDescription = ({ item, loading }) => {
     const keysToMap = [
         "brand",
         "model",
@@ -28,16 +28,18 @@ const ProductDescription = ({item, loading}) => {
     return (
         <>
             {loading ? (
-             <div>loading</div>
+                <div>loading</div>
             ) : (
-                <ul>
-                    {descriptionArray && descriptionArray.map(({ key, value }) => (
-                        <li key={key}>
-                            {capitalizeWords(key)}: {replaceEmptyString(value)}
-                        </li>
-                    ))}
-                </ul>
-                
+                <div className="c-product-description">
+                    <title>Descriptionu</title>
+                    <ul className="c-product-description__list">
+                        {descriptionArray && descriptionArray.map(({ key, value }) => (
+                            <li key={key}>
+                                {capitalizeWords(key)}: {replaceEmptyString(value)}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
         </>
     );

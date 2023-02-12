@@ -3,6 +3,7 @@ import { ProductContext } from "../../context/ProductContext";
 import { useNavigate } from 'react-router-dom';
 import useDebounceValue from "../../hooks/useDebounceValue";
 import shortid from "shortid";
+import "../../styles/components/searchbar.scss";
 
 
 const SearchBar = () => {
@@ -14,11 +15,11 @@ const SearchBar = () => {
 
     const getAutoCompleteResults = useCallback(() => {
         return productList.map(product => {
-          const searchTerm = `${product.brand.toLowerCase()} ${product.model.toLowerCase()}`;
-          if (!searchTerm.includes(debounceQuery.toLowerCase())) return null;
-          return product;
+            const searchTerm = `${product.brand.toLowerCase()} ${product.model.toLowerCase()}`;
+            if (!searchTerm.includes(debounceQuery.toLowerCase())) return null;
+            return product;
         }).filter(Boolean);
-      }, [debounceQuery, productList]);
+    }, [debounceQuery, productList]);
 
     useEffect(() => {
         setSuggestions([]);
@@ -27,9 +28,9 @@ const SearchBar = () => {
     }, [debounceQuery, getAutoCompleteResults])
 
     return (
-        <div>
-            <input value={query} onChange={(e) => setQuery(e.target.value)}></input>
-            <div>{suggestions.map(sgt => <div key={shortid.generate()} onClick={() => navigate(`/products/${sgt.id}`)}>{`${sgt.brand}-${sgt.model}`}</div>)}</div>
+        <div className="c-searchbar">
+            <input className="c-searchbar__input" value={query} onChange={(e) => setQuery(e.target.value)}></input>
+            <div className="c-searchbar__suggestions">{suggestions.map(sgt => <div className="c-searchbar__suggestions-item" key={shortid.generate()} onClick={() => navigate(`/products/${sgt.id}`)}>{`${sgt.brand}-${sgt.model}`}</div>)}</div>
         </div>
     )
 
