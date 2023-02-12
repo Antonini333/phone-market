@@ -40,17 +40,22 @@ const ProductActions = ({ item, loading }) => {
                 <div>Loading</div>
             ) : (
                 <div className="c-product-actions">
-                    <div className="c-product-actions__colors">
+                    <h3>Options</h3>
+                    <div>
                         <h4>Colors</h4>
-                        {colors?.map((color => {
-                            return <div key={color.code} onClick={() => handleSelection(COLOR_KEY, color.code)} >{color.name}</div>
-                        }))}
+                        <div className="c-product-actions__colors">
+                            {colors?.map((color => {
+                                return <div className="c-product-actions__colors-item" key={color.code} onClick={() => handleSelection(COLOR_KEY, color.code)} >{color.name}</div>
+                            }))}
+                        </div>
                     </div>
-                    <div className="c-product-actions__storage">
+                    <div>
                         <h4>Storage</h4>
-                        {storages?.map((storage => {
-                            return <div key={storage.code} onClick={() => handleSelection(STORAGE_KEY, storage.code)}>{storage.name}</div>
-                        }))}
+                        <div className="c-product-actions__storage">
+                            {storages?.map((storage => {
+                                return <div className="c-product-actions__storage-item" key={storage.code} onClick={() => handleSelection(STORAGE_KEY, storage.code)}>{storage.name}</div>
+                            }))}
+                        </div>
                     </div>
                     <div className="c-product-actions__button">
                         <button onClick={handleBuy}>Add to cart</button>

@@ -1,5 +1,37 @@
-.l-details-page{
-    &__image{}
-    &__description{}
-    &__actions{}
+.l-details-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "left top"
+        "null bottom";
+    height: calc(100vh - 4rem); // To match header height
+
+    &__image {
+        grid-area: left;
+    }
+
+    &__description {
+        grid-area: top;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 3rem;
+    }
+
+    &__actions {
+        grid-area: bottom;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 0 3rem;
+    }
+}
+
+@media(max-width:500px) {
+    .l-details-page {
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 6rem); // To match header height
+    }
 }

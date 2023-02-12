@@ -31,7 +31,7 @@ const ProductDescription = ({ item, loading }) => {
                 <div>loading</div>
             ) : (
                 <div className="c-product-description">
-                    <title>Descriptionu</title>
+                    <h3>Description</h3>
                     <ul className="c-product-description__list">
                         {descriptionArray && descriptionArray.map(({ key, value }) => (
                             <li key={key}>
