@@ -4,12 +4,12 @@ import ProductProvider from "./context/ProductContext"
 import ProductDetailsPage from "./views/ProductDetailsPage";
 import MainPage from "./views/MainPage";
 import { Header } from "./components/Header/Header"
-import './App.css';
+import './styles/components/app.scss';
 import ErrorPage from './views/ErrorPage';
 
 function AppRouter() {
   return (
-    <div className="App">
+    <div className="l-app">
       <BrowserRouter>
         <ProductProvider>
           <Header />

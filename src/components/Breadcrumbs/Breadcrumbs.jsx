@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { ProductContext } from "../../context/ProductContext";
 import shortid from 'shortid';
+import "../../styles/components/breadcrumbs.scss"
 
 
 
@@ -15,7 +16,7 @@ const Breadcrumbs = () => {
         if (crumb === "products") return "Products";
         const match = productList.find(product => product.id === crumb);
         if(!match) return;
-        return `${match.brand} ${match.model}`
+        return ` > ${match.brand} ${match.model}`
     }
     
     let currentLink = "";
@@ -31,7 +32,7 @@ const Breadcrumbs = () => {
         })
 
     return (
-        <div>
+        <div className="l-breadcrumbs">
             {crumbs}
         </div>
     )
