@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 import { ProductContext } from "../../context/ProductContext";
 import { addToCart } from "../../services/requests";
@@ -11,14 +11,14 @@ const STORAGE_KEY = "storage";
 const ProductActions = ({ item, loading }) => {
     let navigate = useNavigate();
     const { setCartItems } = useContext(ProductContext);
-    const optionSelected = {
-        id: item?.id,
-        colorCode: null,
-        storageCode: null
-    };
+    console.log("item", item)
     const colors = item?.options?.colors;
     const storages = item?.options?.storages;
-
+    const  [optionSelected, setOptionSelected] = useState({
+        id: item?.id,
+        colorCode: colors[0]?.code,
+        storageCode: storages[0]?.code
+    })
 
     const handleBuy = () => {
         if (optionSelected.colorCode && optionSelected.storageCode) {
@@ -30,10 +30,14 @@ const ProductActions = ({ item, loading }) => {
     }
 
     const handleSelection = (key, value) => {
-        if (key === COLOR_KEY) optionSelected.colorCode = value;
-        if (key === STORAGE_KEY) optionSelected.storageCode = value;
+        if (key === COLOR_KEY) setOptionSelected((prev) => {return {...prev, colorCode: value}});
+        if (key === STORAGE_KEY) setOptionSelected((prev) => {return {...prev, storageCode: value}});
     }
 
+    const handleActive = (code) => {
+        if (code === optionSelected.colorCode || code === optionSelected.storageCode) return "c-product-actions__item--selected";
+        return "c-product-actions__item"
+    }
     return (
         <>
             { loading ? (
@@ -45,7 +49,7 @@ const ProductActions = ({ item, loading }) => {
                         <h4>Colors</h4>
                         <div className="c-product-actions__colors">
                             {colors?.map((color => {
-                                return <div className="c-product-actions__colors-item" key={color.code} onClick={() => handleSelection(COLOR_KEY, color.code)} >{color.name}</div>
+                                return <div className={handleActive(color.code)} key={color.code} onClick={() => handleSelection(COLOR_KEY, color.code)} >{color.name}</div>
                             }))}
                         </div>
                     </div>
@@ -53,7 +57,7 @@ const ProductActions = ({ item, loading }) => {
                         <h4>Storage</h4>
                         <div className="c-product-actions__storage">
                             {storages?.map((storage => {
-                                return <div className="c-product-actions__storage-item" key={storage.code} onClick={() => handleSelection(STORAGE_KEY, storage.code)}>{storage.name}</div>
+                                return <div className={handleActive(storage.code)} key={storage.code} onClick={() => handleSelection(STORAGE_KEY, storage.code)}>{storage.name}</div>
                             }))}
                         </div>
                     </div>

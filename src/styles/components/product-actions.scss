@@ -5,36 +5,34 @@
     &__colors {
         display: flex;
         gap: 2rem;
-
-        &-item {
-            border: 2px solid black;
-            padding: 0.5rem;
-            border-radius: 4px;
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
     }
 
     &__storage {
         display: flex;
         gap: 2rem;
-
-        &-item {
-            border: 2px solid black;
-            padding: 0.5rem;
-            border-radius: 4px;
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
     }
 
     &__button {
         margin: 2rem 0;
 
         button {}
+    }
+
+    &__item {
+        border: 2px solid black;
+        padding: 0.5rem;
+        border-radius: 4px;
+
+        &:hover {
+            cursor: pointer;
+        }
+        
+        &--selected{
+            border: 2px solid #c6c6c6;
+            padding: 0.5rem;
+            border-radius: 4px;
+            background-color: black;
+            color: white;
+        }
     }
 }
