@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import "../../styles/components/header.scss"
 import ShopCart from "../ShopCart/ShopCart";
+import ShopLogo from "./shop-logo.svg"
 
 export const Header = () => {
 
@@ -10,7 +11,7 @@ export const Header = () => {
             <div className="c-header__content">
                 <nav>
                     <Link to="/">
-                        <h2>Header</h2>
+                        <img src={ShopLogo} alt="logo"/>
                     </Link>
                 </nav>
                 <Breadcrumbs />
