@@ -2,6 +2,10 @@
     &__searchbar {}
 
     &__grid {
-        &-item {}
+        display: flex;
+        flex-wrap: wrap;
+        &-item {
+            flex: 1 0 21%; 
+        }
     }
 }
