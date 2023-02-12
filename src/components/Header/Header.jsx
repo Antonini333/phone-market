@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { ProductContext } from "../../context/ProductContext";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import ShopCart from "../ShopCart/ShopCart";
 import "../../styles/components/header.scss"
 
 export const Header = () => {
-
-    const { cartItems } = useContext(ProductContext);
 
     return (
         <div className="c-header">
@@ -16,8 +13,8 @@ export const Header = () => {
                         <h2>Header</h2>
                     </Link>
                 </nav>
-                    <Breadcrumbs />
-                    cart: {cartItems}
+                <Breadcrumbs />
+                <ShopCart />
             </div>
         </div>
     )
