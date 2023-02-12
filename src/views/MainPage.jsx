@@ -1,12 +1,12 @@
-import ProductList from "../components/ProductList/ProductList"
+import ProductList from "../components/ProductList/ProductList";
+import "../styles/views/main-page.scss";
 
 const MainPage = () => {
- 
+
     return (
-        <>
-        <h1>Product list</h1>
-           <ProductList/>
-        </>
+        <div className="l-main-page">
+            <ProductList />
+        </div>
     )
 }
 

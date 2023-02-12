@@ -1,10 +1,12 @@
-
+import "../styles/views/error-page.scss"
 
 const ErrorPage = () => {
 
     return (
-        <div>
-            No se ha encontrado el artículo
+        <div className="c-error-page">
+            <div className="c-error-page__message">
+                No se ha encontrado el artículo
+            </div>
         </div>
     )
 }
