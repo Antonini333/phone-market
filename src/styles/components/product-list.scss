@@ -1,5 +1,7 @@
+@import "../palette.scss";
+
 .c-product-list {
-    background-color: aquamarine;
+    background-color: $blue;
     &__searchbar {
         display: flex;
         justify-content: flex-end;

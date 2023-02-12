@@ -1,10 +1,12 @@
+@import "../palette.scss";
+
 .l-details-page {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
         "left top"
-        "null bottom";
+        "left bottom";
     height: calc(100vh - 4rem); // To match header height
 
     &__image {
@@ -16,7 +18,6 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        padding: 0 3rem;
     }
 
     &__actions {
@@ -24,7 +25,6 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        padding: 0 3rem;
     }
 }
 
@@ -32,6 +32,6 @@
     .l-details-page {
         display: flex;
         flex-direction: column;
-        height: calc(100vh - 6rem); // To match header height
+        height: calc(100vh - 5rem); // To match header height
     }
 }

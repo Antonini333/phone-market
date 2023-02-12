@@ -14,6 +14,7 @@ const ProductDetailsPage = () => {
             <div className="l-details-page__image">
                 <ProductImage item={details} loading={loading}/>
             </div>
+            <div className="l-details-page__footer"></div>
             <div className="l-details-page__description">
                 <ProductDescription item={details} loading={loading} />
             </div>
