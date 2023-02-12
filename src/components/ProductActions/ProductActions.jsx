@@ -21,7 +21,7 @@ const ProductActions = ({ item, loading }) => {
             colorCode: colors[0]?.code,
             storageCode: storages[0]?.code
         })
-    }, [item]);
+    }, [item, colors, storages]);
 
     const handleBuy = () => {
         addToCart(optionSelected)

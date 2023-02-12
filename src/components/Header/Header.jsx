@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
-import ShopCart from "../ShopCart/ShopCart";
 import "../../styles/components/header.scss"
+import ShopCart from "../ShopCart/ShopCart";
 
 export const Header = () => {
 

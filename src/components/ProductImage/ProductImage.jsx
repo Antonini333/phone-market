@@ -9,7 +9,7 @@ const ProductImage = ({ item, loading }) => {
             ) :
                 (
                     <div className="c-product-image">
-                        <img src={item?.imgUrl} alt="Product image" />
+                        <img src={item?.imgUrl} alt="Product" />
                     </div>
                 )
             }
