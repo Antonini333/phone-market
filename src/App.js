@@ -2,7 +2,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ProductProvider from "./context/ProductContext"
 import ProductDetailsPage from "./views/ProductDetailsPage";
-import ProductListPage from "./views/ProductListPage";
+import MainPage from "./views/MainPage";
 import { Header } from "./components/Header/Header"
 import './App.css';
 import ErrorPage from './views/ErrorPage';
@@ -15,7 +15,7 @@ function AppRouter() {
           <Header />
           <Routes>
           <Route path="*" element={<Navigate to="/products" />} />
-            <Route path="/products" element={<ProductListPage />} />
+            <Route path="/products" element={<MainPage />} />
             <Route path="/products/:id" element={<ProductDetailsPage />} />
             <Route path="/products/error" element={<ErrorPage/>}/>
           </Routes>
