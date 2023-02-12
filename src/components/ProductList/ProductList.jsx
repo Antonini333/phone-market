@@ -3,6 +3,7 @@ import SearchBar from "../SearchBar/SearchBar"
 import { ProductContext } from "../../context/ProductContext";
 import { useNavigate } from 'react-router-dom';
 import shortid from 'shortid';
+import Card from "../Card/Card";
 
 const ProductList = () => {
     const { productList } = useContext(ProductContext);
@@ -13,13 +14,14 @@ const ProductList = () => {
         <>
             <h1>List</h1>
             <SearchBar />
-            <ul>
+            <div>
                 {productList.map((product => {
-                    return <li key={shortid.generate()} onClick={() => navigate(`/products/${product.id}`)}>
+                    return <div key={shortid.generate()} onClick={() => navigate(`/products/${product.id}`)}>
                         {`${product.brand}, ${product.model}`}
-                    </li>
+                        <Card item={product}/>
+                    </div>
                 }))}
-            </ul>
+            </div>
         </>
     )
 }
