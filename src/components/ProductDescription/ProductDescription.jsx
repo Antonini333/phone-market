@@ -28,7 +28,7 @@ const ProductDescription = ({item, loading}) => {
     return (
         <>
             {loading ? (
-             <div>LOADING</div>
+             <div>loading</div>
             ) : (
                 <ul>
                     {descriptionArray && descriptionArray.map(({ key, value }) => (
