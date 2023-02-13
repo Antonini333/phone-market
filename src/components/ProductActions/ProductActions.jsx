@@ -36,40 +36,44 @@ const ProductActions = ({ item, loading }) => {
     }
 
     const handleActive = (code) => {
-        if (code === optionSelected.colorCode || code === optionSelected.storageCode) return "c-product-actions__item--selected";
+        if (code === optionSelected.colorCode) return "c-product-actions__item--selected";
+        if (code === optionSelected.storageCode) return "c-product-actions__item--selected";
         return "c-product-actions__item"
     }
-    
 
     return (
-        <>
-            { loading ? (
-                <div>Loading</div>
-            ) : (
-                <div className="c-product-actions">
-                    <h3>Options</h3>
-                    <div>
-                        <h4>Colors</h4>
-                        <div className="c-product-actions__colors">
-                            {colors?.map((color => {
-                                return <div className={`${handleActive(color.code)}`} key={color.code} onClick={() => handleSelection(COLOR_KEY, color.code)} >{color.name}</div>
-                            }))}
+        <div className="c-product-actions">
+            <h3>Options</h3>
+            <div>
+                <h4>Colors</h4>
+                <div className="c-product-actions__colors">
+                    {colors?.map((color => {
+                        return <div
+                            className={`${handleActive(color.code)}`}
+                            key={color.code}
+                            onClick={() => handleSelection(COLOR_KEY, color.code)}>
+                            {color.name}
                         </div>
-                    </div>
-                    <div>
-                        <h4>Storage</h4>
-                        <div className="c-product-actions__storage">
-                            {storages?.map((storage => {
-                                return <div className={`${handleActive(storage.code)}`} key={storage.code} onClick={() => handleSelection(STORAGE_KEY, storage.code)}>{storage.name}</div>
-                            }))}
-                        </div>
-                    </div>
-                    <div className="c-product-actions__button">
-                        <button onClick={handleBuy}>Add to cart</button>
-                    </div>
+                    }))}
                 </div>
-            )}
-        </>
+            </div>
+            <div>
+                <h4>Storage</h4>
+                <div className="c-product-actions__storage">
+                    {storages?.map((storage => {
+                        return <div
+                            className={`${handleActive(storage.code)}`}
+                            key={storage.code}
+                            onClick={() => handleSelection(STORAGE_KEY, storage.code)}>
+                            {storage.name}
+                        </div>
+                    }))}
+                </div>
+            </div>
+            <div className="c-product-actions__button">
+                <button onClick={handleBuy}>Add to cart</button>
+            </div>
+        </div>
     )
 }
 

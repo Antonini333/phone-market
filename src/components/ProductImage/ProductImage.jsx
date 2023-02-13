@@ -1,20 +1,11 @@
 import "../../styles/components/product-image.scss";
 
-const ProductImage = ({ item, loading }) => {
+const ProductImage = ({ item }) => {
 
     return (
-        <>
-            {loading ? (
-                <div>loading</div>
-            ) :
-                (
-                    <div className="c-product-image">
-                        <img src={item?.imgUrl} alt="Product" />
-                    </div>
-                )
-            }
-
-        </>
+        <div className="c-product-image">
+            <img src={item?.imgUrl} alt="Product" />
+        </div>
     )
 
 }

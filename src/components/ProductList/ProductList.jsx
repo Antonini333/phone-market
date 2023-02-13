@@ -10,16 +10,17 @@ const ProductList = () => {
     const { productList } = useContext(ProductContext);
     let navigate = useNavigate();
 
-
     return (
-
         <div className="c-product-list">
             <div className="c-product-list__searchbar">
                 <SearchBar />
             </div>
             <div className="c-product-list__grid">
                 {productList.map((product => {
-                    return <div className="c-product-list__grid-item" key={shortid.generate()} onClick={() => navigate(`/products/${product.id}`)}>
+                    return <div
+                        className="c-product-list__grid-item"
+                        key={shortid.generate()}
+                        onClick={() => navigate(`/products/${product.id}`)}>
                         <Card item={product} />
                     </div>
                 }))}

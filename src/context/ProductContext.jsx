@@ -3,7 +3,6 @@ import { getProductsList } from "../services/requests"
 
 export const ProductContext = createContext({
     productList: [],
-    setProductList: () => {},
     cartItems: 0,
     setCartItems: () => {},
 });

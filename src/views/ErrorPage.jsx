@@ -1,4 +1,3 @@
-import "../styles/views/error-page.scss"
 
 const ErrorPage = () => {
 

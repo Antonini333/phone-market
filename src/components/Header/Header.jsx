@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
-import "../../styles/components/header.scss"
 import ShopCart from "../ShopCart/ShopCart";
 import ShopLogo from "./shop-logo.svg"
+import "../../styles/components/header.scss"
 
 export const Header = () => {
 

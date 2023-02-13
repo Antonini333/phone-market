@@ -8,3 +8,8 @@ export const replaceEmptyString = (str) => {
     if (!str || str === "-") return "Not specified";
     return str
 }
+
+export const hasPrice = (item) => {
+    if (item.price) return `${item.price} $`
+    return "Not available"
+}
