@@ -33,6 +33,6 @@
     .l-details-page {
         display: flex;
         flex-direction: column;
-        height: calc(100vh - 6rem); // To match header height
+        height: calc(100% - 6rem); // To match header height
     }
 }

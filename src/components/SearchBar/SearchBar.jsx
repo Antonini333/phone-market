@@ -3,6 +3,7 @@ import { ProductContext } from "../../context/ProductContext";
 import { useNavigate } from 'react-router-dom';
 import useDebounceValue from "../../hooks/useDebounceValue";
 import shortid from "shortid";
+import {HiMagnifyingGlass} from "react-icons/hi2"
 import "../../styles/components/searchbar.scss";
 
 
@@ -29,11 +30,12 @@ const SearchBar = () => {
 
     return (
         <div className="c-searchbar">
-            <input className="c-searchbar__input" value={query} onChange={(e) => setQuery(e.target.value)}></input>
+            <input type="search" className="c-searchbar__input" value={query} onChange={(e) => setQuery(e.target.value)}></input>
+            <HiMagnifyingGlass size={24} style={{position: "absolute", top: "15px", right: "25px"}}/>
+             
             <div className="c-searchbar__suggestions">{suggestions.map(sgt => <div className="c-searchbar__suggestions-item" key={shortid.generate()} onClick={() => navigate(`/products/${sgt.id}`)}>{`${sgt.brand}-${sgt.model}`}</div>)}</div>
         </div>
     )
 
 }
-
 export default SearchBar

@@ -9,9 +9,9 @@
 
 @media(max-width: 500px) {
     .l-app{
-        width: auto;
+     //   width: auto;
         margin-top: 8rem; //To match header height
-        background: $blue;
-    background: linear-gradient(to bottom, rgba(27, 51, 99, 1) 0%, rgba(132, 143, 165, 1) 35%, rgba(255, 186, 8, 1) 100%);
+     //   background: $blue;
+  //  background: linear-gradient(to bottom, rgba(27, 51, 99, 1) 0%, rgba(132, 143, 165, 1) 35%, rgba(255, 186, 8, 1) 100%);
     }
 }
