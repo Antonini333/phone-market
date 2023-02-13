@@ -1,4 +1,11 @@
+@import "../palette.scss";
+
 .l-breadcrumbs {
     display: flex;
     width: auto;
+
+    &__item{
+        text-decoration: none;
+        color: $blue;
+    }
 }

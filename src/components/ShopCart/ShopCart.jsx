@@ -8,7 +8,7 @@ const ShopCart = () => {
     return (
         <div className="c-shopcart">
             <div className="c-shopcart__icon">
-                <FiShoppingCart size={24} />
+                <FiShoppingCart size={24} color={"white"}/>
                 <span id="badge">{cartItems}</span>
             </div>
         </div>

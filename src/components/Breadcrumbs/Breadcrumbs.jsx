@@ -26,7 +26,7 @@ const Breadcrumbs = () => {
             currentLink += `/${crumb}`
             return (
                 <div key={shortid.generate()}>
-                    <Link to={currentLink}>{getProductNameById(crumb)}</Link>
+                    <Link to={currentLink} className="l-breadcrumbs__item" >{getProductNameById(crumb)}</Link>
                 </div>
             )
         })

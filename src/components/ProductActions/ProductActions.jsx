@@ -39,6 +39,7 @@ const ProductActions = ({ item, loading }) => {
         if (code === optionSelected.colorCode || code === optionSelected.storageCode) return "c-product-actions__item--selected";
         return "c-product-actions__item"
     }
+    
 
     return (
         <>
