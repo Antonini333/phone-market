@@ -1,16 +1,41 @@
+@import "../palette.scss";
+
 .c-card {
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+margin: 0 5rem 2rem 5rem;
+border: 2px solid $black;
+border-radius: 4px;
+background: linear-gradient(to top, rgba(27, 51, 99, 1) 0%, rgba(132, 143, 165, 1) 35%, rgba(255, 186, 8, 1) 100%);
 
-    &__image {}
 
-    &__model {}
-
-    &__price {}
-
-    &:hover{
-        cursor: pointer;
+    &__image {
+        padding: 1rem;
+        border-radius: 14px;
+        filter: drop-shadow(0 0 10px white) drop-shadow(0 0 10px white);
     }
+
+    &__model {
+        background-color: $black;
+        color: white;
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+
+    &__price {
+
+        border: 2px solid $black;
+        width: 50%;
+        border-radius: 12px;
+        text-align: center;
+        padding: 0.5rem 0;
+        margin-bottom: 1rem;
+        background-color: $grey-2;
+        
+    }
+
+    
 }
