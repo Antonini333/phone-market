@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import ProductActions from "../components/ProductActions/ProductActions";
 import ProductDescription from "../components/ProductDescription/ProductDescription";
 import ProductImage from "../components/ProductImage/ProductImage";
@@ -10,18 +11,26 @@ const ProductDetailsPage = () => {
     const [details, loading] = useProductDetails(id);
 
     return (
-        <div className="l-details-page">
-            <div className="l-details-page__image">
-                <ProductImage item={details} loading={loading}/>
-            </div>
-            <div className="l-details-page__footer"></div>
-            <div className="l-details-page__description">
-                <ProductDescription item={details} loading={loading} />
-            </div>
-            <div className="l-details-page__actions">
-                <ProductActions item={details} loading={loading} />
-            </div>
-        </div>
+        <>
+            {loading ? (
+                <LoadingSpinner />
+            ) : (
+                <div className="l-details-page">
+                    <div className="l-details-page__image">
+                        <ProductImage item={details} />
+                    </div>
+                    <div className="l-details-page__footer"></div>
+                    <div className="l-details-page__description">
+                        <ProductDescription item={details} />
+                    </div>
+                    <div className="l-details-page__actions">
+                        <ProductActions item={details} />
+                    </div>
+                </div>
+            )
+            }
+
+        </>
     )
 }
 

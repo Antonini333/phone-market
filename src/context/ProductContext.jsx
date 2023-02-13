@@ -11,15 +11,17 @@ const ProductProvider = ({ children }) => {
     const [productList, setProductList] = useState([]);
     const [cartItems, setCartItems] = useState(0);
     const [lastUpdate, setLastUpdate] = useState(null);
+    const [loading, setLoading] = useState(false);
     const msHour = 60 * 60 * 1000;
     const hourHasPassed = useCallback(() => Date.now() - lastUpdate > msHour, [lastUpdate, msHour]);
 
     useEffect(() => {
+        setLoading(true);
         if (hourHasPassed()) {
             getProductsList()
                 .then(({data}) => {
                     setProductList(data);
-                    console.log("New update", Date.now())
+                    setLoading(false)
                     setLastUpdate(Date.now())
                 })
                 .catch(err => console.error(err))
