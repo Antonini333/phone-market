@@ -31,11 +31,13 @@ const ProductDescription = ({ item, loading }) => {
                 <div>loading</div>
             ) : (
                 <div className="c-product-description">
+                    <div className="c-product-description__header">
                     <h3>Description</h3>
+                    </div>
                     <ul className="c-product-description__list">
                         {descriptionArray && descriptionArray.map(({ key, value }) => (
                             <li key={key}>
-                                {capitalizeWords(key)}: {replaceEmptyString(value)}
+                                {<b>{capitalizeWords(key)}</b>}: {replaceEmptyString(value)}
                             </li>
                         ))}
                     </ul>

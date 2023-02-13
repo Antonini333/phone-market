@@ -2,8 +2,12 @@
 
 .c-product-actions {
     width: 100%;
-    height: 100%;
-    background-color: $grey;
+    height: auto;
+    border: 2px solid $black;
+    margin-right: 2rem;
+    border-radius: 4px;
+    padding: 1rem;
+    background-color: rgba(229, 230, 245, 0.22);
 
     &__colors {
         display: flex;
@@ -18,7 +22,48 @@
     &__button {
         margin: 2rem 0;
 
-        button {}
+        button {
+         
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 0;
+  padding: 13px 16px;
+  text-align: center;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+
+&:after {
+  background-clip: padding-box;
+  background-color: #1CB0F6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+
+        }
     }
 
     &__item {
@@ -30,8 +75,8 @@
         &:hover {
             cursor: pointer;
         }
-        
-        &--selected{
+
+        &--selected {
             border: 2px solid $white;
             padding: 0.5rem;
             border-radius: 4px;
