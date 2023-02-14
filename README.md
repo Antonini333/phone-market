@@ -37,12 +37,12 @@ For the details page, I used `react-router-dom` to get the product ID from the n
 
 ## Styles
 
-### Styles are managed with SCSS, following the BEM + ITCSS architecture.
+### Styles and responsiveness are managed with SCSS, following the BEM + ITCSS architecture.
 
 
 ## Features to Add
 
-- Test coverage: I've tried to develop following TDD but faced several issues while configuring the context and the Axios request into the Jest tests. That's the main reason why the app still doesn't have test coverage. They are still working on it.
+- Test coverage: I've tried to develop following TDD but faced several issues while configuring the context and the Axios request into the Jest tests. That's the main reason why the app still doesn't have test coverage. Still working on it!.
 - Modal for shopping cart: I plan to add a modal to display more information about the products added to the shopping cart, not just the item count.
 - Lazy loading of product list images: I've found some workarounds but wants to use as few libraries as possible, so this feature is still in development.
 
