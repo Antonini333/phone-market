@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState, useCallback } from "react";
-import PropTypes from "prop-types";
+import { useNavigate } from "react-router";
 import { getProductsList } from "../services/requests"
 
 export const ProductContext = createContext({
@@ -12,6 +12,7 @@ const ProductProvider = ({ children }) => {
     const [productList, setProductList] = useState([]);
     const [cartItems, setCartItems] = useState(0);
     const [lastUpdate, setLastUpdate] = useState(null);
+    const navigate = useNavigate();
     const msHour = 60 * 60 * 1000;
     const hourHasPassed = useCallback(() => Date.now() - lastUpdate > msHour, [lastUpdate, msHour]);
 
@@ -22,7 +23,10 @@ const ProductProvider = ({ children }) => {
                     setProductList(data);
                     setLastUpdate(Date.now());
                 })
-                .catch(err => console.error(err))
+                .catch((err) => {
+                    console.error(err);
+                    navigate("/products/error")
+                })
         }
     }, [lastUpdate, msHour, hourHasPassed]);
 
@@ -46,9 +50,5 @@ const ProductProvider = ({ children }) => {
 }
 
 
-
-ProductProvider.propTypes = {
-    children: PropTypes.element,
-};
 
 export default ProductProvider;
