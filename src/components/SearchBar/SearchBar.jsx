@@ -42,7 +42,7 @@ const SearchBar = () => {
                 onBlur={() => setIsFocused(false)} />
             <HiMagnifyingGlass size={24} style={{ position: "absolute", top: "15px", right: "25px" }} />
 
-            {isFocused && <div className="c-searchbar__suggestions">
+            {isFocused && <div className="c-searchbar__suggestions" onMouseDown={(e) => e.preventDefault()}>
                 {suggestions.map(sgt => <div
                     className="c-searchbar__suggestions-item"
                     key={shortid.generate()}
