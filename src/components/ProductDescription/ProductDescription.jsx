@@ -1,7 +1,10 @@
+import React from "react";
+
+import PropTypes from "prop-types";
 import { capitalizeWords, replaceEmptyString } from "../../utils/functions";
 import "../../styles/components/product-description.scss";
 
-const ProductDescription = ({ item, loading }) => {
+const ProductDescription = ({ item }) => {
     const keysToMap = [
         "brand",
         "model",
@@ -40,6 +43,14 @@ const ProductDescription = ({ item, loading }) => {
             </ul>
         </div>
     );
+};
+
+ProductDescription.defaultProps = {
+    item: {},
+};
+
+ProductDescription.propTypes = {
+    item: PropTypes.object,
 };
 
 export default ProductDescription;

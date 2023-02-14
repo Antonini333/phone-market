@@ -1,6 +1,7 @@
 import React from "react";
-import "../../styles/components/card.scss";
+import PropTypes from "prop-types";
 import { hasPrice } from "../../utils/functions";
+import "../../styles/components/card.scss";
 
 export const Card = ({ item }) => {
 
@@ -20,6 +21,15 @@ export const Card = ({ item }) => {
             </div>
         </div>
     )
+    
 }
+
+Card.defaultProps = {
+    item: {},
+  };
+  
+  Card.propTypes = {
+    item: PropTypes.object,
+  };
 
 export default Card

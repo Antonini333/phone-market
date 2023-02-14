@@ -1,4 +1,5 @@
 import React, { createContext, useEffect, useState, useCallback } from "react";
+import PropTypes from "prop-types";
 import { getProductsList } from "../services/requests"
 
 export const ProductContext = createContext({
@@ -11,18 +12,15 @@ const ProductProvider = ({ children }) => {
     const [productList, setProductList] = useState([]);
     const [cartItems, setCartItems] = useState(0);
     const [lastUpdate, setLastUpdate] = useState(null);
-    const [loading, setLoading] = useState(false);
     const msHour = 60 * 60 * 1000;
     const hourHasPassed = useCallback(() => Date.now() - lastUpdate > msHour, [lastUpdate, msHour]);
 
     useEffect(() => {
-        setLoading(true);
         if (hourHasPassed()) {
             getProductsList()
                 .then(({data}) => {
                     setProductList(data);
-                    setLoading(false)
-                    setLastUpdate(Date.now())
+                    setLastUpdate(Date.now());
                 })
                 .catch(err => console.error(err))
         }
@@ -46,5 +44,11 @@ const ProductProvider = ({ children }) => {
         </ProductContext.Provider>
     )
 }
+
+
+
+ProductProvider.propTypes = {
+    children: PropTypes.element,
+};
 
 export default ProductProvider;

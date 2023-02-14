@@ -1,3 +1,5 @@
+import React from "react";
+import PropTypes from "prop-types";
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { ProductContext } from "../../context/ProductContext";
@@ -8,7 +10,7 @@ const COLOR_KEY = "color";
 const STORAGE_KEY = "storage";
 
 
-const ProductActions = ({ item, loading }) => {
+const ProductActions = ({ item }) => {
     let navigate = useNavigate();
     const { setCartItems } = useContext(ProductContext);
     const [optionSelected, setOptionSelected] = useState({});
@@ -76,5 +78,13 @@ const ProductActions = ({ item, loading }) => {
         </div>
     )
 }
+
+ProductActions.defaultProps = {
+    item: {},
+};
+
+ProductActions.propTypes = {
+    item: PropTypes.object,
+};
 
 export default ProductActions

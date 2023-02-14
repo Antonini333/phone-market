@@ -1,3 +1,4 @@
+import React from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import ProductActions from "../components/ProductActions/ProductActions";

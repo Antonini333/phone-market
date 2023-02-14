@@ -1,4 +1,4 @@
-
+import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ProductProvider from "./context/ProductContext"
 import ProductDetailsPage from "./views/ProductDetailsPage";
@@ -14,10 +14,10 @@ function AppRouter() {
         <ProductProvider>
           <Header />
           <Routes>
-          <Route path="*" element={<Navigate to="/products" />} />
+            <Route path="*" element={<Navigate to="/products" />} />
             <Route path="/products" element={<MainPage />} />
             <Route path="/products/:id" element={<ProductDetailsPage />} />
-            <Route path="/products/error" element={<ErrorPage/>}/>
+            <Route path="/products/error" element={<ErrorPage />} />
           </Routes>
         </ProductProvider>
       </BrowserRouter>

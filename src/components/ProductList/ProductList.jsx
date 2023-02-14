@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import SearchBar from "../SearchBar/SearchBar"
 import { ProductContext } from "../../context/ProductContext";

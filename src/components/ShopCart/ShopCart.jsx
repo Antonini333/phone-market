@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import { ProductContext } from "../../context/ProductContext";
 import { FiShoppingCart } from "react-icons/fi";
