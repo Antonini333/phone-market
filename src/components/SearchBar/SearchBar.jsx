@@ -13,6 +13,7 @@ const SearchBar = () => {
     const { productList } = useContext(ProductContext);
     const [query, setQuery] = useState("");
     const [suggestions, setSuggestions] = useState([]);
+    const [isFocused, setIsFocused] = useState(false);
     const debounceQuery = useDebounceValue(query);
 
     const getAutoCompleteResults = useCallback(() => {
@@ -27,14 +28,21 @@ const SearchBar = () => {
         setSuggestions([]);
         if (debounceQuery.length > 0)
             setSuggestions(getAutoCompleteResults());
-    }, [debounceQuery, getAutoCompleteResults])
+    }, [debounceQuery, getAutoCompleteResults]);
+
+
 
     return (
         <div className="c-searchbar">
-            <input type="search" className="c-searchbar__input" value={query} onChange={(e) => setQuery(e.target.value)}></input>
+            <input type="search"
+                className="c-searchbar__input"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => setIsFocused(false)} />
             <HiMagnifyingGlass size={24} style={{ position: "absolute", top: "15px", right: "25px" }} />
-            
-            <div className="c-searchbar__suggestions">
+
+            {isFocused && <div className="c-searchbar__suggestions">
                 {suggestions.map(sgt => <div
                     className="c-searchbar__suggestions-item"
                     key={shortid.generate()}
@@ -42,7 +50,7 @@ const SearchBar = () => {
                     {`${sgt.brand}-${sgt.model}`}
                 </div>
                 )}
-            </div>
+            </div>}
         </div>
     )
 

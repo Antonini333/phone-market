@@ -12,7 +12,7 @@ export const Card = ({ item }) => {
                     {item.brand} {item?.model}
                 </div>
                 <div className="c-card__image">
-                    <img src={item?.imgUrl} loading="lazy" alt="product" />
+                    <img src={item?.imgUrl} loading="lazy" alt="product" draggable={false} />
                 </div>
                 <div className="c-card__price">
                     <b> {hasPrice(item)}</b>

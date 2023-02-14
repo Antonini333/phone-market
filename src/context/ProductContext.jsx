@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState, useCallback } from "react";
 import { useNavigate } from "react-router";
-import { getProductsList } from "../services/requests"
+import { getProductsList } from "../services/requests";
+import PropTypes from "prop-types";
 
 export const ProductContext = createContext({
     productList: [],
@@ -49,6 +50,15 @@ const ProductProvider = ({ children }) => {
     )
 }
 
+
+
+ProductProvider.defaultProps = {
+    children: React.Children,
+  };
+  
+  ProductProvider.propTypes = {
+    children: PropTypes.element,
+  };
 
 
 export default ProductProvider;
